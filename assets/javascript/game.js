@@ -22,11 +22,10 @@ class Solo {
   }
 }
 
-class Darth Maul {
+class Maul {
   constructor() {
     this.name = 'Darth Maul';
     this.hp = 180;
     this.attackPoints = 20;
   }
 }
-

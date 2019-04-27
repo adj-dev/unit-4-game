@@ -1,0 +1,34 @@
+h1 {
+  font-size: 3em;
+  margin: 0.4em 0;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+/* -------------------------------------- */
+/* ----------CHOOSE A CHARACTER-----------*/
+/* -------------------------------------- */
+
+.character-cards {
+  display: flex;
+}
+
+.card {
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: 0 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.card > img {
+  width: 170px;
+  height: 225px;
+  margin: 8px 0;
+}

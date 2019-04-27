@@ -7,10 +7,6 @@ h2 {
   font-size: 2em;
 }
 
-h3 {
-  font-size: 1.3em;
-}
-
 /* -------------------------------------- */
 /* ----------CHOOSE A CHARACTER-----------*/
 /* -------------------------------------- */
@@ -28,7 +24,13 @@ h3 {
 }
 
 .card > img {
-  width: 170px;
-  height: 225px;
+  width: 100px;
+  height: 140px;
   margin: 8px 0;
+}
+
+/* Responive class */
+
+.enemy {
+  box-shadow: 0 0 3px 1px red;
 }

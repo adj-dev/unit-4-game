@@ -73,3 +73,23 @@ a {
 #enemies {
   display: none;
 }
+
+/* -------------------------------------- */
+/* ---------------ARENA DIV---------------*/
+/* -------------------------------------- */
+
+#arena {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin-top: 60px;
+}
+
+#arena > button {
+  margin: 0 10px;
+  margin-bottom: 20px;
+  height: 40px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.2em;
+}

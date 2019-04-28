@@ -12,6 +12,11 @@ h2 {
   font-size: 2em;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 /* -------------------------------------- */
 /* ----------CHOOSE A CHARACTER-----------*/
 /* -------------------------------------- */
@@ -23,19 +28,48 @@ h2 {
 .card {
   border: 1px solid black;
   border-radius: 4px;
-  margin: 0 10px;
   padding: 20px;
   text-align: center;
 }
 
-.card > img {
+.card-link {
+  margin: 0 10px;
+}
+
+/* .card-link#luke {
+  left: 11px;
+  top: 58px;
+}
+
+.card-link#obiwan {
+  left: 180px;
+  top: 58px;
+}
+
+.card-link#han {
+  left: 348px;
+  top: 58px;
+}
+
+.card-link#darth {
+  left: 510px;
+  top: 58px;
+} */
+
+.card img {
   width: 100px;
   height: 140px;
   margin: 8px 0;
 }
 
-/* Responive class */
-
 .enemy {
   box-shadow: 0 0 3px 1px red;
+}
+
+/* -------------------------------------- */
+/* --------------ENEMIES DIV--------------*/
+/* -------------------------------------- */
+
+#enemies {
+  display: none;
 }

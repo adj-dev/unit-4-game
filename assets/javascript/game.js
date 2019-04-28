@@ -55,12 +55,11 @@ const maul = new Character('Darth Maul', 180, 20);
 // Define the Game class
 
 class Game {
-  characters;
-  charCards;
-
   constructor() {
     this.characters = [skywalker, kenobi, solo, maul];
     this.charCards = ['luke', 'obiwan', 'han', 'darth'];
+    this.enemyCards = ['luke2', 'obiwan2', 'han2', 'darth2'];
+    this.characterChosen = false;
   }
 }
 
@@ -71,7 +70,11 @@ $(function() {
   $('.card-link').click(e => {
     let id = e.delegateTarget.id;
 
-    hideUnselectedCards(id);
+    if (game.characterChosen === false) {
+      hideUnselectedCards(id);
+      showEnemies(id);
+      game.characterChosen = true;
+    }
   });
 });
 
@@ -84,4 +87,18 @@ const hideUnselectedCards = id => {
   }
 
   // Also hide the 'Choose a Character' header
+};
+
+// Show the enemies section ( and hide the user character from it )
+const showEnemies = id => {
+  // Hide user character
+  let id2 = id + '2';
+  for (let i = 0; i < game.enemyCards.length; i++) {
+    if (id2 === game.enemyCards[i]) {
+      $(`#${game.enemyCards[i]}`).css({ display: 'none' });
+    }
+  }
+
+  // Show enemies
+  $('#enemies').css({ display: 'block' });
 };

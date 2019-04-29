@@ -1,99 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.4.0.min.js"
-      integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
-      crossorigin="anonymous"
-    ></script>
-    <script src="assets/javascript/game.js"></script>
-    <title>Star Wars RPG</title>
-  </head>
-  <body>
-    <div class="container">
-      <div id="choose-character">
-        <h2>Choose a character:</h2>
-        <div class="character-cards">
-          <a class="card-link" href="#" id="luke">
-            <div class="card">
-              <h3>Luke Skywalker</h3>
-              <img src="assets/images/luke.jpeg" alt="luke skywalker" />
-              <p>HP: <span>100</span></p>
-            </div>
-          </a>
-          <a class="card-link" href="#" id="obiwan">
-            <div class="card">
-              <h3>Obi-Wan Kenobi</h3>
-              <img src="assets/images/obi-wan.jpg" alt="obi wan" />
-              <p>HP: <span>150</span></p>
-            </div>
-          </a>
-          <a class="card-link" href="#" id="han">
-            <div class="card">
-              <h3>Han Solo</h3>
-              <img src="assets/images/han-solo.jpg" alt="han solo" />
-              <p>HP: <span>120</span></p>
-            </div>
-          </a>
-          <a class="card-link" href="#" id="darth">
-            <div class="card">
-              <h3>Darth Maul</h3>
-              <img src="assets/images/darth-maul.png" alt="darth maul" />
-              <p>HP: <span>180</span></p>
-            </div>
-          </a>
-        </div>
-      </div>
 
-      <div id="enemies">
-        <h2>Choose an enemy to fight:</h2>
-        <div class="character-cards">
-          <a class="card-link" href="#" id="luke2">
-            <div class="card enemy">
-              <h3>Luke Skywalker</h3>
-              <img src="assets/images/luke.jpeg" alt="luke skywalker" />
-              <p>HP: <span>100</span></p>
-            </div>
-          </a>
-          <a class="card-link" href="#" id="obiwan2">
-            <div class="card enemy">
-              <h3>Obi-Wan Kenobi</h3>
-              <img src="assets/images/obi-wan.jpg" alt="obiwan kenobi" />
-              <p>HP: <span>150</span></p>
-            </div>
-          </a>
-          <a class="card-link" href="#" id="han2">
-            <div class="card enemy">
-              <h3>Han Solo</h3>
-              <img src="assets/images/han-solo.jpg" alt="han solo" />
-              <p>HP: <span>120</span></p>
-            </div>
-          </a>
-          <a class="card-link" href="#" id="darth2">
-            <div class="card enemy">
-              <h3>Darth Maul</h3>
-              <img src="assets/images/darth-maul.png" alt="darth maul" />
-              <p>HP: <span>180</span></p>
-            </div>
-          </a>
-        </div>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+  <script src="assets/javascript/game.js"></script>
+  <title>Star Wars RPG</title>
+</head>
 
-      <div id="arena">
-        <button id="attack">ATTACK!!!</button>
-        <a href="#" class="card-link" id="enemy">
-          <div class="card enemy">
-            <h3>Something</h3>
-            <img src="assets/images/darth-maul.png" alt="enemy" />
-            <p>HP: <span></span></p>
+<body>
+  <div class="container">
+    <div id="choose-character">
+      <h2>Choose a character:</h2>
+      <div class="character-cards">
+        <a class="card-link" href="#" id="luke">
+          <div class="card">
+            <h3>Luke Skywalker</h3>
+            <img src="assets/images/luke.jpeg" alt="luke skywalker" />
+            <p>HP: <span>100</span></p>
+          </div>
+        </a>
+        <a class="card-link" href="#" id="obiwan">
+          <div class="card">
+            <h3>Obi-Wan Kenobi</h3>
+            <img src="assets/images/obi-wan.jpg" alt="obi wan" />
+            <p>HP: <span>150</span></p>
+          </div>
+        </a>
+        <a class="card-link" href="#" id="han">
+          <div class="card">
+            <h3>Han Solo</h3>
+            <img src="assets/images/han-solo.jpg" alt="han solo" />
+            <p>HP: <span>120</span></p>
+          </div>
+        </a>
+        <a class="card-link" href="#" id="darth">
+          <div class="card">
+            <h3>Darth Maul</h3>
+            <img src="assets/images/darth-maul.png" alt="darth maul" />
+            <p>HP: <span>180</span></p>
           </div>
         </a>
       </div>
     </div>
-  </body>
+
+    <div id="enemies">
+      <h2>Choose an enemy to fight:</h2>
+      <div class="character-cards">
+        <a class="card-link" href="#" id="luke2">
+          <div class="card enemy">
+            <h3>Luke Skywalker</h3>
+            <img src="assets/images/luke.jpeg" alt="luke skywalker" />
+            <p>HP: <span>100</span></p>
+          </div>
+        </a>
+        <a class="card-link" href="#" id="obiwan2">
+          <div class="card enemy">
+            <h3>Obi-Wan Kenobi</h3>
+            <img src="assets/images/obi-wan.jpg" alt="obiwan kenobi" />
+            <p>HP: <span>150</span></p>
+          </div>
+        </a>
+        <a class="card-link" href="#" id="han2">
+          <div class="card enemy">
+            <h3>Han Solo</h3>
+            <img src="assets/images/han-solo.jpg" alt="han solo" />
+            <p>HP: <span>120</span></p>
+          </div>
+        </a>
+        <a class="card-link" href="#" id="darth2">
+          <div class="card enemy">
+            <h3>Darth Maul</h3>
+            <img src="assets/images/darth-maul.png" alt="darth maul" />
+            <p>HP: <span>180</span></p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div id="arena">
+      <button id="attack">ATTACK!!!</button>
+      <a href="#" class="card-link" id="enemy">
+        <div class="card enemy">
+          <h3>Something</h3>
+          <img src="assets/images/darth-maul.png" alt="enemy" />
+          <p>HP: <span></span></p>
+        </div>
+      </a>
+    </div>
+
+    <div id="game-over">
+      <button id="reset">Reset</button>
+      <span></span>
+    </div>
+  </div>
+</body>
+
 </html>

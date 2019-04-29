@@ -9,6 +9,35 @@ class Game {
     this.enemyChosen = false;
     this.enemyEngaged = false;
   }
+
+  // Hide unselected characters after user selects a character
+  hideUnselectedCards(id) {
+    for (let i = 0; i < this.charCards.length; i++) {
+      if (id !== this.charCards[i]) {
+        $(`#${this.charCards[i]}`).css({ display: 'none' });
+      }
+    }
+
+    // Assign id to this.chosenCharacterId
+    this.characterChosenId = id;
+
+    // Also hide the 'Choose a Character' header
+    $('#choose-character > h2').text('You chose...');
+  };
+
+  // Show the enemies section ( and hide the selected character)
+  showEnemies(id) {
+    // Hide selected character
+    let id2 = id + '2';
+    for (let i = 0; i < this.enemyCards.length; i++) {
+      if (id2 === this.enemyCards[i]) {
+        $(`#${this.enemyCards[i]}`).css({ display: 'none' });
+      }
+    }
+
+    // Show enemies
+    $('#enemies').css({ display: 'block' });
+  };
 }
 
 // Define the Character class
@@ -61,8 +90,8 @@ $(function () {
     let id = e.delegateTarget.id;
 
     if (game.characterChosen === false) {
-      hideUnselectedCards(id);
-      showEnemies(id);
+      game.hideUnselectedCards(id);
+      game.showEnemies(id);
       game.characterChosen = true;
     } else if (id.search('2') !== -1 && !game.enemyEngaged) { // Checks for the number '2' in the id and if an enemy is engaged
       for (let i = 0; i < game.enemyCards.length; i++) {
@@ -89,40 +118,3 @@ $(function () {
     }
   });
 });
-
-/*
-
-Originally I wanted to add the following functions directly
-to the Game and Character classes as methods or properties. 
-Maybe I will???
-
-*/
-
-// Hide unselected characters after user selects a character
-const hideUnselectedCards = id => {
-  for (let i = 0; i < game.charCards.length; i++) {
-    if (id !== game.charCards[i]) {
-      $(`#${game.charCards[i]}`).css({ display: 'none' });
-    }
-  }
-
-  // Assign id to this.chosenCharacterId
-  game.characterChosenId = id;
-
-  // Also hide the 'Choose a Character' header
-  $('#choose-character > h2').text('You chose...');
-};
-
-// Show the enemies section ( and hide the selected character)
-const showEnemies = id => {
-  // Hide selected character
-  let id2 = id + '2';
-  for (let i = 0; i < game.enemyCards.length; i++) {
-    if (id2 === game.enemyCards[i]) {
-      $(`#${game.enemyCards[i]}`).css({ display: 'none' });
-    }
-  }
-
-  // Show enemies
-  $('#enemies').css({ display: 'block' });
-};

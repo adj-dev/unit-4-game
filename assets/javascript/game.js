@@ -1,43 +1,12 @@
-// class Skywalker {
-//   constructor() {
-//     this.name = 'Luke Skywalker';
-//     this.hp = 100;
-//     this.attackPoints = 14;
-//   }
-// }
-
-// class Kenobi {
-//   constructor() {
-//     this.name = 'Obi-Wan Kenobi';
-//     this.hp = 150;
-//     this.attackPoints = 8;
-//   }
-// }
-
-// class Solo {
-//   constructor() {
-//     this.name = 'Han Solo';
-//     this.hp = 120;
-//     this.attackPoints = 6;
-//   }
-// }
-
-// class Maul {
-//   constructor() {
-//     this.name = 'Darth Maul';
-//     this.hp = 180;
-//     this.attackPoints = 20;
-//   }
-// }
-
 // Define the Character class
 
 class Character {
-  constructor(name, hp, attackPoints) {
+  constructor(name, hp, attackPoints, imageHREF) {
     this.name = name;
     this.hp = hp;
     this.attackPoints = attackPoints;
     this.attackPointsRef = attackPoints;
+    this.imageHREF = imageHREF;
   }
 
   attack() {
@@ -47,10 +16,30 @@ class Character {
 
 // Create all game characters
 
-const skywalker = new Character('Luke Skywalker', 100, 14);
-const kenobi = new Character('Obi-Wan Kenobi', 150, 8);
-const solo = new Character('Han Solo', 120, 6);
-const maul = new Character('Darth Maul', 180, 20);
+const skywalker = new Character(
+  'Luke Skywalker',
+  100,
+  14,
+  'assets/images/luke.jpeg'
+);
+const kenobi = new Character(
+  'Obi-Wan Kenobi',
+  150,
+  8,
+  'assets/images/obi-wan.jpg'
+);
+const solo = new Character(
+  'Han Solo',
+  120,
+  6,
+  'assets/images/han-solo.jpg'
+);
+const maul = new Character(
+  'Darth Maul',
+  180,
+  20,
+  'assets/images/darth-maul.png'
+);
 
 // Define the Game class
 
@@ -60,13 +49,16 @@ class Game {
     this.charCards = ['luke', 'obiwan', 'han', 'darth'];
     this.enemyCards = ['luke2', 'obiwan2', 'han2', 'darth2'];
     this.characterChosen = false;
+    this.characterChosenId = '';
+    this.enemyChosen = false;
+    this.enemyEngaged = false;
   }
 }
 
 const game = new Game();
 
 // Main listener function that initiates gameplay after user selects a character
-$(function() {
+$(function () {
   $('.card-link').click(e => {
     let id = e.delegateTarget.id;
 
@@ -74,7 +66,32 @@ $(function() {
       hideUnselectedCards(id);
       showEnemies(id);
       game.characterChosen = true;
+    } else if (id.search('2') !== -1 && !game.enemyEngaged) { // Checks for the number '2' in the id and if an enemy is engaged
+      for (let i = 0; i < game.enemyCards.length; i++) {
+        if (id === game.enemyCards[i]) {
+          // Grab data from Character class
+          let chosenEnemy = game.characters[i];
+          let name = chosenEnemy.name;
+          let hp = chosenEnemy.hp;
+          let imageHREF = chosenEnemy.imageHREF;
+
+          // Hide the enemy card
+          $(`#${id}`).css({ display: 'none' });
+
+          // Logic switch
+          game.enemyEngaged = true;
+
+          // Render out the arena div and assign name and hp values
+          $('#arena h3').text(name);
+          $('#arena span').text(hp);
+          $('#arena img').attr('src', imageHREF);
+          $('#arena').css({ display: 'flex' });
+        }
+      }
     }
+
+    // Make logic for selecting an enemy
+    // will need to show arena div
   });
 });
 
@@ -86,12 +103,16 @@ const hideUnselectedCards = id => {
     }
   }
 
+  // Assign id to this.chosenCharacterId
+  game.characterChosenId = id;
+
   // Also hide the 'Choose a Character' header
+  $('#choose-character > h2').text('You chose...');
 };
 
-// Show the enemies section ( and hide the user character from it )
+// Show the enemies section ( and hide the selected character)
 const showEnemies = id => {
-  // Hide user character
+  // Hide selected character
   let id2 = id + '2';
   for (let i = 0; i < game.enemyCards.length; i++) {
     if (id2 === game.enemyCards[i]) {

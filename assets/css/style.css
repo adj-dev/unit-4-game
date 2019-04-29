@@ -62,10 +62,6 @@ a {
   margin: 8px 0;
 }
 
-.enemy {
-  box-shadow: 0 0 3px 1px red;
-}
-
 /* -------------------------------------- */
 /* --------------ENEMIES DIV--------------*/
 /* -------------------------------------- */
@@ -74,12 +70,16 @@ a {
   display: none;
 }
 
+.enemy {
+  box-shadow: 0 0 3px 1px red;
+}
+
 /* -------------------------------------- */
 /* ---------------ARENA DIV---------------*/
 /* -------------------------------------- */
 
 #arena {
-  display: flex;
+  display: none;
   flex-direction: column;
   width: fit-content;
   margin-top: 60px;

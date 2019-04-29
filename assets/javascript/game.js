@@ -1,5 +1,17 @@
-// Define the Character class
+// Define the Game class
+class Game {
+  constructor() {
+    this.characters = [skywalker, kenobi, solo, maul];
+    this.charCards = ['luke', 'obiwan', 'han', 'darth'];
+    this.enemyCards = ['luke2', 'obiwan2', 'han2', 'darth2'];
+    this.characterChosen = false;
+    this.characterChosenId = '';
+    this.enemyChosen = false;
+    this.enemyEngaged = false;
+  }
+}
 
+// Define the Character class
 class Character {
   constructor(name, hp, attackPoints, imageHREF) {
     this.name = name;
@@ -15,7 +27,6 @@ class Character {
 }
 
 // Create all game characters
-
 const skywalker = new Character(
   'Luke Skywalker',
   100,
@@ -41,20 +52,7 @@ const maul = new Character(
   'assets/images/darth-maul.png'
 );
 
-// Define the Game class
-
-class Game {
-  constructor() {
-    this.characters = [skywalker, kenobi, solo, maul];
-    this.charCards = ['luke', 'obiwan', 'han', 'darth'];
-    this.enemyCards = ['luke2', 'obiwan2', 'han2', 'darth2'];
-    this.characterChosen = false;
-    this.characterChosenId = '';
-    this.enemyChosen = false;
-    this.enemyEngaged = false;
-  }
-}
-
+// Create the game object
 const game = new Game();
 
 // Main listener function that initiates gameplay after user selects a character
@@ -81,7 +79,7 @@ $(function () {
           // Logic switch
           game.enemyEngaged = true;
 
-          // Render out the arena div and assign name and hp values
+          // Render out the arena div and assign values
           $('#arena h3').text(name);
           $('#arena span').text(hp);
           $('#arena img').attr('src', imageHREF);
@@ -89,11 +87,16 @@ $(function () {
         }
       }
     }
-
-    // Make logic for selecting an enemy
-    // will need to show arena div
   });
 });
+
+/*
+
+Originally I wanted to add the following functions directly
+to the Game and Character classes as methods or properties. 
+Maybe I will???
+
+*/
 
 // Hide unselected characters after user selects a character
 const hideUnselectedCards = id => {

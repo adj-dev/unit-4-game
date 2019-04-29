@@ -17,6 +17,15 @@ a {
   text-decoration: none;
 }
 
+button {
+  margin: 0 10px;
+  margin-bottom: 20px;
+  height: 40px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
 /* -------------------------------------- */
 /* ----------CHOOSE A CHARACTER-----------*/
 /* -------------------------------------- */
@@ -33,6 +42,7 @@ a {
 }
 
 .card-link {
+  width: 180px;
   margin: 0 10px;
 }
 
@@ -57,8 +67,8 @@ a {
 } */
 
 .card img {
-  width: 100px;
-  height: 140px;
+  width: 120px;
+  height: 160px;
   margin: 8px 0;
 }
 
@@ -85,11 +95,10 @@ a {
   margin-top: 60px;
 }
 
-#arena > button {
-  margin: 0 10px;
-  margin-bottom: 20px;
-  height: 40px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 1.2em;
+/* -------------------------------------- */
+/* ---------------RESET DIV---------------*/
+/* -------------------------------------- */
+
+#game-over {
+  display: none;
 }

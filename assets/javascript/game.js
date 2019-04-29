@@ -1,4 +1,9 @@
-// Define the Game class
+/*
+
+Define the Game class
+
+*/
+
 class Game {
   constructor() {
     this.characters = [skywalker, kenobi, solo, maul];
@@ -10,6 +15,30 @@ class Game {
     this.enemyEngaged = false;
   }
 
+  // Handle logic when user selects an enemy to engage in battle
+  engageEnemy(id) {
+    for (let i = 0; i < this.enemyCards.length; i++) {
+      if (id === this.enemyCards[i]) {
+        // Grab data from Character class
+        let chosenEnemy = this.characters[i];
+        let name = chosenEnemy.name;
+        let hp = chosenEnemy.hp;
+        let imageHREF = chosenEnemy.imageHREF;
+
+        // Hide the enemy card
+        $(`#${id}`).css({ display: 'none' });
+
+        // Logic switch
+        this.enemyEngaged = true;
+
+        // Render out the arena div and assign values
+        $('#arena h3').text(name);
+        $('#arena span').text(hp);
+        $('#arena img').attr('src', imageHREF);
+        $('#arena').css({ display: 'flex' });
+      }
+    }
+  }
   // Hide unselected characters after user selects a character
   hideUnselectedCards(id) {
     for (let i = 0; i < this.charCards.length; i++) {
@@ -40,7 +69,12 @@ class Game {
   };
 }
 
-// Define the Character class
+/*
+
+Define the Character class
+
+*/
+
 class Character {
   constructor(name, hp, attackPoints, imageHREF) {
     this.name = name;
@@ -55,7 +89,12 @@ class Character {
   }
 }
 
-// Create all game characters
+/*
+
+Create the game characters
+
+*/
+
 const skywalker = new Character(
   'Luke Skywalker',
   100,
@@ -81,40 +120,34 @@ const maul = new Character(
   'assets/images/darth-maul.png'
 );
 
-// Create the game object
+/*
+
+Instantiate the game object
+
+*/
+
 const game = new Game();
 
-// Main listener function that initiates gameplay after user selects a character
+/*
+
+Main listener function
+
+*/
+
 $(function () {
   $('.card-link').click(e => {
     let id = e.delegateTarget.id;
 
+    // Choose a character
     if (game.characterChosen === false) {
       game.hideUnselectedCards(id);
       game.showEnemies(id);
       game.characterChosen = true;
-    } else if (id.search('2') !== -1 && !game.enemyEngaged) { // Checks for the number '2' in the id and if an enemy is engaged
-      for (let i = 0; i < game.enemyCards.length; i++) {
-        if (id === game.enemyCards[i]) {
-          // Grab data from Character class
-          let chosenEnemy = game.characters[i];
-          let name = chosenEnemy.name;
-          let hp = chosenEnemy.hp;
-          let imageHREF = chosenEnemy.imageHREF;
+    }
 
-          // Hide the enemy card
-          $(`#${id}`).css({ display: 'none' });
-
-          // Logic switch
-          game.enemyEngaged = true;
-
-          // Render out the arena div and assign values
-          $('#arena h3').text(name);
-          $('#arena span').text(hp);
-          $('#arena img').attr('src', imageHREF);
-          $('#arena').css({ display: 'flex' });
-        }
-      }
+    // Engage an enemy
+    if (id.search('2') !== -1 && !game.enemyEngaged) {
+      game.engageEnemy(id);
     }
   });
 });

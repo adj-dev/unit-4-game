@@ -110,6 +110,7 @@ class Game {
       // Send a message, render out screen back to normal, reset variables
       console.log('Game Over');
       this.gameOver = true;
+      this.winCount = 0;
 
       // Reveal "reset" button
       $('#game-over span').text("You've lost... GAME OVER.");
@@ -121,7 +122,7 @@ class Game {
     // Check if user wins game
     if (this.winCount === 3) {
       this.gameOver = true;
-
+      this.winCount = 0;
       $('#game-over span').text("You've WON! The force is strong with you.");
       $('#game-over').css({ display: 'block' });
     }

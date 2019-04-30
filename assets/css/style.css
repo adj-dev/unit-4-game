@@ -26,6 +26,10 @@ button {
   font-size: 1.2em;
 }
 
+.row {
+  display: flex;
+}
+
 /* -------------------------------------- */
 /* ----------CHOOSE A CHARACTER-----------*/
 /* -------------------------------------- */
@@ -90,7 +94,7 @@ button {
 
 #arena {
   display: none;
-  flex-direction: column;
+  /* flex-direction: column; */
   width: fit-content;
   margin-top: 60px;
 }
